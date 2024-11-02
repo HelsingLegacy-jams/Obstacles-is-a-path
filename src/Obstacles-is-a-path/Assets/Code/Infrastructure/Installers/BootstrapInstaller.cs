@@ -19,11 +19,17 @@ namespace Code.Infrastructure.Installers
 
     public override void InstallBindings()
     {
-      
+      BindContexts();
       BindInstaller();
       BindCommonServices();
       BindFactories();
       BindGameStateMachine();
+    }
+
+    private void BindContexts()
+    {
+      Container.Bind<Contexts>().FromInstance(Contexts.sharedInstance).AsSingle();
+      Container.Bind<GameContext>().FromInstance(Contexts.sharedInstance.game).AsSingle();
     }
 
     private void BindCommonServices()
