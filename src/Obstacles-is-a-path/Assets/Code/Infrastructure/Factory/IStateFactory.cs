@@ -1,6 +1,6 @@
 ﻿using Code.Infrastructure.StateMachine.States;
 
-namespace Code.Infrastructure.StateMachine
+namespace Code.Infrastructure.Factory
 {
   public interface IStateFactory
   {
