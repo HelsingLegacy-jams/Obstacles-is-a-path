@@ -1,4 +1,5 @@
-﻿using Code.Infrastructure.Common.Coroutines;
+﻿using Code.Gameplay.Common.PhysicsService;
+using Code.Infrastructure.Common.Coroutines;
 using Code.Infrastructure.Services.Scenes;
 using Code.Infrastructure.StateMachine;
 using Code.Infrastructure.StateMachine.States;
@@ -25,6 +26,7 @@ namespace Code.Infrastructure.Installers
     private void BindCommonServices()
     {
       Container.Bind<ISceneLoader>().To<SceneLoader>().AsSingle();
+      Container.Bind<IPhysicsService>().To<PhysicsService>().AsSingle();
     }
 
     private void BindInstaller()
