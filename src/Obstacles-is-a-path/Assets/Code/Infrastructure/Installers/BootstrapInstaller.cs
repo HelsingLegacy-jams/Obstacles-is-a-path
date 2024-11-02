@@ -1,5 +1,7 @@
 ﻿using Code.Infrastructure.Common.Coroutines;
+using Code.Infrastructure.Services.Scenes;
 using Code.Infrastructure.StateMachine;
+using Code.Infrastructure.StateMachine.States;
 using Zenject;
 
 namespace Code.Infrastructure.Installers
@@ -8,13 +10,26 @@ namespace Code.Infrastructure.Installers
   {
     public void Initialize()
     {
-      
+      Container.Resolve<IStatesBinder>().BindStates();
+      Container.Resolve<IGameStateMachine>().Enter<BootstrapState>();
     }
 
     public override void InstallBindings()
     {
+      BindInstaller();
+      BindCommonServices();
       BindFactories();
       BindGameStateMachine();
+    }
+
+    private void BindCommonServices()
+    {
+      Container.Bind<ISceneLoader>().To<SceneLoader>().AsSingle();
+    }
+
+    private void BindInstaller()
+    {
+      Container.BindInterfacesTo<BootstrapInstaller>().FromInstance(this).AsSingle();
     }
 
     private void BindFactories()

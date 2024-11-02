@@ -6,7 +6,7 @@ namespace Code.Infrastructure.StateMachine
 {
   public class GameStateMachine : IStatesBinder, IGameStateMachine
   {
-    private readonly Dictionary<Type, IState> _states;
+    private readonly Dictionary<Type, IState> _states = new ();
     private readonly IStateFactory _stateFactory;
     private IState _activeState;
 
@@ -16,8 +16,8 @@ namespace Code.Infrastructure.StateMachine
     public void BindStates()
     {
       _states.Add(typeof(BootstrapState), _stateFactory.Create<BootstrapState>(this));
-      _states.Add(typeof(BootstrapState), _stateFactory.Create<BootstrapState>(this));
-      _states.Add(typeof(BootstrapState), _stateFactory.Create<BootstrapState>(this));
+      _states.Add(typeof(LoadLevelState), _stateFactory.Create<LoadLevelState>(this));
+      _states.Add(typeof(GameLoopState), _stateFactory.Create<GameLoopState>());
     }
 
     public void Enter<TState>() where TState : IState
