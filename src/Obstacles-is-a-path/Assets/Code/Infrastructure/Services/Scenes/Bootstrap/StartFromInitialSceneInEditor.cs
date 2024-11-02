@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
 
-namespace Code.Infrastructure.Bootstrap
+namespace Code.Infrastructure.Services.Scenes.Bootstrap
 {
     public class StartFromInitialSceneInEditor : MonoBehaviour
     {
