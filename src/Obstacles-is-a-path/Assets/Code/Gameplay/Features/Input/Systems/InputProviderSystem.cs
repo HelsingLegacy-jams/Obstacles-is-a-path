@@ -11,7 +11,8 @@ namespace Code.Gameplay.Features.Input.Systems
     {
       _inputs = game.GetGroup(GameMatcher
         .AllOf(
-          GameMatcher.Input));
+          GameMatcher.Input,
+          GameMatcher.MovementDirection));
     }
 
     public void Execute()

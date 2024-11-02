@@ -9,17 +9,26 @@
 public static class GameComponentsLookup {
 
     public const int Input = 0;
-    public const int MovementDirection = 1;
+    public const int DestinationPosition = 1;
+    public const int MovementAvailable = 2;
+    public const int MovementDirection = 3;
+    public const int Moving = 4;
 
-    public const int TotalComponents = 2;
+    public const int TotalComponents = 5;
 
     public static readonly string[] componentNames = {
         "Input",
-        "MovementDirection"
+        "DestinationPosition",
+        "MovementAvailable",
+        "MovementDirection",
+        "Moving"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(Code.Gameplay.Features.Input.Input),
-        typeof(Code.Gameplay.Features.Movement.MovementDirection)
+        typeof(Code.Gameplay.Features.Movement.DestinationPosition),
+        typeof(Code.Gameplay.Features.Movement.MovementAvailable),
+        typeof(Code.Gameplay.Features.Movement.MovementDirection),
+        typeof(Code.Gameplay.Features.Movement.Moving)
     };
 }
