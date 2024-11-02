@@ -7,7 +7,7 @@ namespace Code.Infrastructure.Services.Scenes.Bootstrap
     public class StartFromInitialSceneInEditor : MonoBehaviour
     {
 #if UNITY_EDITOR
-      private const int EnterSceneIndex = 1;
+      private const int EnterSceneIndex = 0;
       
       private void Awake()
       {
