@@ -21,12 +21,18 @@ namespace Code.Infrastructure.View
       _entity.AddView(this);
       _entity.Retain(this);
 
+      foreach (IEntityComponentRegistrar registrar in GetComponentsInChildren<IEntityComponentRegistrar>()) 
+        registrar.RegisterComponent();
+      
       foreach (Collider collider in GetComponentsInChildren<Collider>(includeInactive: true)) 
         _collisionRegistry.Register(collider.GetInstanceID(), _entity);
     }
 
     public void ReleaseEntity()
     {
+      foreach (IEntityComponentRegistrar registrar in GetComponentsInChildren<IEntityComponentRegistrar>()) 
+        registrar.UnregisterComponent();
+      
       foreach (Collider collider in GetComponentsInChildren<Collider>(includeInactive: true)) 
         _collisionRegistry.Unregister(collider.GetInstanceID());
 
