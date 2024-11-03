@@ -37,7 +37,7 @@ namespace Code.Gameplay.Features.Cameras.Systems
     private Vector3 PositionOffset(GameEntity hero, GameEntity camera)
     {
       Vector3 followingPosition = hero.Transform.position;
-      followingPosition.y = camera.Offset;
+      followingPosition.y = hero.Transform.position.y + camera.Offset;
       return followingPosition;
     }
   }
