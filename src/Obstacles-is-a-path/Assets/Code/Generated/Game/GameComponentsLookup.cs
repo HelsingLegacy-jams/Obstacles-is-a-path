@@ -11,39 +11,51 @@ public static class GameComponentsLookup {
     public const int View = 0;
     public const int ViewPath = 1;
     public const int ViewPrefab = 2;
-    public const int Input = 3;
-    public const int Interacted = 4;
-    public const int InteractionPosition = 5;
-    public const int DestinationPosition = 6;
-    public const int MovementAvailable = 7;
-    public const int MovementDirection = 8;
-    public const int Moving = 9;
+    public const int WorldPosition = 3;
+    public const int Hero = 4;
+    public const int Input = 5;
+    public const int Interacted = 6;
+    public const int InteractionPosition = 7;
+    public const int CharacterMover = 8;
+    public const int DestinationPosition = 9;
+    public const int MovementAvailable = 10;
+    public const int MovementDirection = 11;
+    public const int Moving = 12;
+    public const int Speed = 13;
 
-    public const int TotalComponents = 10;
+    public const int TotalComponents = 14;
 
     public static readonly string[] componentNames = {
         "View",
         "ViewPath",
         "ViewPrefab",
+        "WorldPosition",
+        "Hero",
         "Input",
         "Interacted",
         "InteractionPosition",
+        "CharacterMover",
         "DestinationPosition",
         "MovementAvailable",
         "MovementDirection",
-        "Moving"
+        "Moving",
+        "Speed"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(Code.Common.View),
         typeof(Code.Common.ViewPath),
         typeof(Code.Common.ViewPrefab),
+        typeof(Code.Gameplay.Common.WorldPosition),
+        typeof(Code.Gameplay.Features.Hero.Hero),
         typeof(Code.Gameplay.Features.Input.Input),
         typeof(Code.Gameplay.Features.Input.Interacted),
         typeof(Code.Gameplay.Features.Input.InteractionPosition),
+        typeof(Code.Gameplay.Features.Movement.CharacterMoverComponent),
         typeof(Code.Gameplay.Features.Movement.DestinationPosition),
         typeof(Code.Gameplay.Features.Movement.MovementAvailable),
         typeof(Code.Gameplay.Features.Movement.MovementDirection),
-        typeof(Code.Gameplay.Features.Movement.Moving)
+        typeof(Code.Gameplay.Features.Movement.Moving),
+        typeof(Code.Gameplay.Features.Movement.Speed)
     };
 }

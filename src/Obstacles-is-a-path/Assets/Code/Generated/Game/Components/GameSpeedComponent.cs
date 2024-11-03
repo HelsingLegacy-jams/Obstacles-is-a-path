@@ -8,17 +8,17 @@
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherViewPath;
+    static Entitas.IMatcher<GameEntity> _matcherSpeed;
 
-    public static Entitas.IMatcher<GameEntity> ViewPath {
+    public static Entitas.IMatcher<GameEntity> Speed {
         get {
-            if (_matcherViewPath == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.ViewPath);
+            if (_matcherSpeed == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Speed);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherViewPath = matcher;
+                _matcherSpeed = matcher;
             }
 
-            return _matcherViewPath;
+            return _matcherSpeed;
         }
     }
 }
@@ -33,28 +33,28 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.Common.ViewPath viewPath { get { return (Code.Common.ViewPath)GetComponent(GameComponentsLookup.ViewPath); } }
-    public string ViewPath { get { return viewPath.Value; } }
-    public bool hasViewPath { get { return HasComponent(GameComponentsLookup.ViewPath); } }
+    public Code.Gameplay.Features.Movement.Speed speed { get { return (Code.Gameplay.Features.Movement.Speed)GetComponent(GameComponentsLookup.Speed); } }
+    public float Speed { get { return speed.Value; } }
+    public bool hasSpeed { get { return HasComponent(GameComponentsLookup.Speed); } }
 
-    public GameEntity AddViewPath(string newValue) {
-        var index = GameComponentsLookup.ViewPath;
-        var component = (Code.Common.ViewPath)CreateComponent(index, typeof(Code.Common.ViewPath));
+    public GameEntity AddSpeed(float newValue) {
+        var index = GameComponentsLookup.Speed;
+        var component = (Code.Gameplay.Features.Movement.Speed)CreateComponent(index, typeof(Code.Gameplay.Features.Movement.Speed));
         component.Value = newValue;
         AddComponent(index, component);
         return this;
     }
 
-    public GameEntity ReplaceViewPath(string newValue) {
-        var index = GameComponentsLookup.ViewPath;
-        var component = (Code.Common.ViewPath)CreateComponent(index, typeof(Code.Common.ViewPath));
+    public GameEntity ReplaceSpeed(float newValue) {
+        var index = GameComponentsLookup.Speed;
+        var component = (Code.Gameplay.Features.Movement.Speed)CreateComponent(index, typeof(Code.Gameplay.Features.Movement.Speed));
         component.Value = newValue;
         ReplaceComponent(index, component);
         return this;
     }
 
-    public GameEntity RemoveViewPath() {
-        RemoveComponent(GameComponentsLookup.ViewPath);
+    public GameEntity RemoveSpeed() {
+        RemoveComponent(GameComponentsLookup.Speed);
         return this;
     }
 }
