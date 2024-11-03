@@ -24,8 +24,10 @@ namespace Code.Gameplay.Features.Input.Systems
       foreach (GameEntity input in _inputs)
       foreach (GameEntity hero in _heroes.GetEntities(_buffer))
       {
-        hero.RemoveMovementDirection();
         hero.AddDestinationPosition(input.DestinationPosition);
+
+        if (hero.hasMovementDirection)
+          hero.RemoveMovementDirection();
       }
     }
   }

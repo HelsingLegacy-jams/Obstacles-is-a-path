@@ -6,7 +6,14 @@ namespace Code.Gameplay.Features.Movement.Behaviours
   {
     public CharacterController Controller;
     
-    public void MoveIn(Vector3 direction) => 
-      Controller.Move(direction);
+    public void MoveIn(Vector3 direction, float with)
+    {
+      Vector3 moveDirection = direction;
+      moveDirection.Normalize();
+
+      moveDirection += Physics.gravity;
+      
+      Controller.Move(moveDirection * with * Time.deltaTime);
+    }
   }
 }

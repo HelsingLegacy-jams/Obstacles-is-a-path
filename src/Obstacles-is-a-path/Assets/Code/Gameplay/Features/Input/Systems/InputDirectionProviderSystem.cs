@@ -25,6 +25,10 @@ namespace Code.Gameplay.Features.Input.Systems
       foreach (GameEntity input in _inputs)
       {
         hero.ReplaceMovementDirection(input.MovementDirection);
+        hero.isMoving = input.hasMovementDirection;
+        
+        if (hero.hasDestinationPosition)
+          hero.RemoveDestinationPosition();
       }
     }
   }

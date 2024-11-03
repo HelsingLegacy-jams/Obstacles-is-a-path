@@ -56,7 +56,7 @@ namespace Code.Gameplay.Features.Input.Behaviours
     {
       Ray ray = _camera.Main.Camera.ScreenPointToRay(pointerPosition);
 
-      Vector3 position = _physics.Raycast(pointerPosition, ray, layer.AsLayer());
+      Vector3 position = _physics.Raycast(ray, layer.AsLayer());
       return position;
     }
   }

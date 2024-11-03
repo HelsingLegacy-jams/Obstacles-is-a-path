@@ -9,18 +9,17 @@ namespace Code.Gameplay.Common.PhysicsService
     private static readonly Collider[] OverlapHits = new Collider[32];
     
     private readonly ICollisionRegistryEntity _collisionRegistry;
+    private IPhysicsService _physicsServiceImplementation;
 
     public PhysicsService(ICollisionRegistryEntity collisionRegistry)
     {
       _collisionRegistry = collisionRegistry;
     }
 
-    public Vector3 Raycast(Vector2 point, Ray ray, int layer)
-    {
-      return Physics.Raycast(ray, out RaycastHit hit, 20, layer) 
-        ? hit.point 
+    public Vector3 Raycast(Ray ray, int layer) =>
+      Physics.Raycast(ray, out RaycastHit hit, 40, layer)
+        ? hit.point
         : Vector3.zero;
-    }
 
     public IEnumerable<GameEntity> SphereCast(Vector3 position, float radius, int layerMask)
     {
