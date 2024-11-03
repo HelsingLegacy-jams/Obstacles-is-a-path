@@ -1,7 +1,7 @@
-﻿using Code.Common;
-using Code.Common.Extensions;
+﻿using Code.Common.Extensions;
 using Code.Gameplay.Common.Collisions;
 using Code.Gameplay.Common.PhysicsService;
+using Code.Gameplay.Features.Cameras.Provider;
 using Code.Gameplay.Features.Input.Service;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -13,17 +13,17 @@ namespace Code.Gameplay.Features.Input.Behaviours
   {
     private IPhysicsService _physics;
     private IInputService _input;
-    // private ICameraService _camera;
+    private ICameraProvider _camera;
 
     private Vector3 _lastMovementPosition;
     private Vector3 _lastInteractionPosition;
 
     [Inject]
-    public void Construct(IPhysicsService physics, IInputService inputService)
+    public void Construct(IPhysicsService physics, IInputService inputService, ICameraProvider cameraProvider)
     {
       _physics = physics;
       _input = inputService;
-      // _camera = camera;
+      _camera = cameraProvider;
     }
 
     public void OnInteraction(InputValue value)
@@ -54,7 +54,7 @@ namespace Code.Gameplay.Features.Input.Behaviours
 
     private Vector3 RaycastPosition(Vector2 pointerPosition, CollisionLayers layer)
     {
-      Ray ray = Camera.main.ScreenPointToRay(pointerPosition);
+      Ray ray = _camera.Main.Camera.ScreenPointToRay(pointerPosition);
 
       Vector3 position = _physics.Raycast(pointerPosition, ray, layer.AsLayer());
       return position;

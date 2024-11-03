@@ -13,18 +13,20 @@ public static class GameComponentsLookup {
     public const int ViewPrefab = 2;
     public const int Transform = 3;
     public const int WorldPosition = 4;
-    public const int Hero = 5;
-    public const int Input = 6;
-    public const int Interacted = 7;
-    public const int InteractionPosition = 8;
-    public const int CharacterMover = 9;
-    public const int DestinationPosition = 10;
-    public const int MovementAvailable = 11;
-    public const int MovementDirection = 12;
-    public const int Moving = 13;
-    public const int Speed = 14;
+    public const int Camera = 5;
+    public const int MainCamera = 6;
+    public const int Hero = 7;
+    public const int Input = 8;
+    public const int Interacted = 9;
+    public const int InteractionPosition = 10;
+    public const int CharacterMover = 11;
+    public const int DestinationPosition = 12;
+    public const int MovementAvailable = 13;
+    public const int MovementDirection = 14;
+    public const int Moving = 15;
+    public const int Speed = 16;
 
-    public const int TotalComponents = 15;
+    public const int TotalComponents = 17;
 
     public static readonly string[] componentNames = {
         "View",
@@ -32,6 +34,8 @@ public static class GameComponentsLookup {
         "ViewPrefab",
         "Transform",
         "WorldPosition",
+        "Camera",
+        "MainCamera",
         "Hero",
         "Input",
         "Interacted",
@@ -50,6 +54,8 @@ public static class GameComponentsLookup {
         typeof(Code.Common.ViewPrefab),
         typeof(Code.Gameplay.Common.TransformComponent),
         typeof(Code.Gameplay.Common.WorldPosition),
+        typeof(Code.Gameplay.Features.Cameras.CameraComponent),
+        typeof(Code.Gameplay.Features.Cameras.MainCamera),
         typeof(Code.Gameplay.Features.Hero.Hero),
         typeof(Code.Gameplay.Features.Input.Input),
         typeof(Code.Gameplay.Features.Input.Interacted),
