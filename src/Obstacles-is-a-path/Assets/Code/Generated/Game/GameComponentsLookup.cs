@@ -14,19 +14,22 @@ public static class GameComponentsLookup {
     public const int Transform = 3;
     public const int WorldPosition = 4;
     public const int Camera = 5;
-    public const int MainCamera = 6;
-    public const int Hero = 7;
-    public const int Input = 8;
-    public const int Interacted = 9;
-    public const int InteractionPosition = 10;
-    public const int CharacterMover = 11;
-    public const int DestinationPosition = 12;
-    public const int MovementAvailable = 13;
-    public const int MovementDirection = 14;
-    public const int Moving = 15;
-    public const int Speed = 16;
+    public const int Distance = 6;
+    public const int MainCamera = 7;
+    public const int Offset = 8;
+    public const int RotationAngleX = 9;
+    public const int Hero = 10;
+    public const int Input = 11;
+    public const int Interacted = 12;
+    public const int InteractionPosition = 13;
+    public const int CharacterMover = 14;
+    public const int DestinationPosition = 15;
+    public const int MovementAvailable = 16;
+    public const int MovementDirection = 17;
+    public const int Moving = 18;
+    public const int Speed = 19;
 
-    public const int TotalComponents = 17;
+    public const int TotalComponents = 20;
 
     public static readonly string[] componentNames = {
         "View",
@@ -35,7 +38,10 @@ public static class GameComponentsLookup {
         "Transform",
         "WorldPosition",
         "Camera",
+        "Distance",
         "MainCamera",
+        "Offset",
+        "RotationAngleX",
         "Hero",
         "Input",
         "Interacted",
@@ -55,7 +61,10 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Common.TransformComponent),
         typeof(Code.Gameplay.Common.WorldPosition),
         typeof(Code.Gameplay.Features.Cameras.CameraComponent),
+        typeof(Code.Gameplay.Features.Cameras.Distance),
         typeof(Code.Gameplay.Features.Cameras.MainCamera),
+        typeof(Code.Gameplay.Features.Cameras.Offset),
+        typeof(Code.Gameplay.Features.Cameras.RotationAngleX),
         typeof(Code.Gameplay.Features.Hero.Hero),
         typeof(Code.Gameplay.Features.Input.Input),
         typeof(Code.Gameplay.Features.Input.Interacted),
