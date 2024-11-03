@@ -7,7 +7,7 @@ namespace Code.Gameplay.Features.Movement.Systems
   public class CharactersMovementToDestinationSystem : IExecuteSystem
   {
     private readonly IGroup<GameEntity> _movers;
-    private readonly List<GameEntity> _buffer = new (64);
+    private readonly List<GameEntity> _buffer = new (128);
 
     public CharactersMovementToDestinationSystem(GameContext game)
     {
