@@ -11,24 +11,26 @@ public static class GameComponentsLookup {
     public const int View = 0;
     public const int ViewPath = 1;
     public const int ViewPrefab = 2;
-    public const int WorldPosition = 3;
-    public const int Hero = 4;
-    public const int Input = 5;
-    public const int Interacted = 6;
-    public const int InteractionPosition = 7;
-    public const int CharacterMover = 8;
-    public const int DestinationPosition = 9;
-    public const int MovementAvailable = 10;
-    public const int MovementDirection = 11;
-    public const int Moving = 12;
-    public const int Speed = 13;
+    public const int Transform = 3;
+    public const int WorldPosition = 4;
+    public const int Hero = 5;
+    public const int Input = 6;
+    public const int Interacted = 7;
+    public const int InteractionPosition = 8;
+    public const int CharacterMover = 9;
+    public const int DestinationPosition = 10;
+    public const int MovementAvailable = 11;
+    public const int MovementDirection = 12;
+    public const int Moving = 13;
+    public const int Speed = 14;
 
-    public const int TotalComponents = 14;
+    public const int TotalComponents = 15;
 
     public static readonly string[] componentNames = {
         "View",
         "ViewPath",
         "ViewPrefab",
+        "Transform",
         "WorldPosition",
         "Hero",
         "Input",
@@ -46,6 +48,7 @@ public static class GameComponentsLookup {
         typeof(Code.Common.View),
         typeof(Code.Common.ViewPath),
         typeof(Code.Common.ViewPrefab),
+        typeof(Code.Gameplay.Common.TransformComponent),
         typeof(Code.Gameplay.Common.WorldPosition),
         typeof(Code.Gameplay.Features.Hero.Hero),
         typeof(Code.Gameplay.Features.Input.Input),

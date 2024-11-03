@@ -4,6 +4,7 @@ using Code.Gameplay.Features.Hero.Factory;
 using Code.Gameplay.Features.Input.Service;
 using Code.Infrastructure.Common.Coroutines;
 using Code.Infrastructure.Factory;
+using Code.Infrastructure.Levels;
 using Code.Infrastructure.Services.Scenes;
 using Code.Infrastructure.StateMachine;
 using Code.Infrastructure.StateMachine.States;
@@ -28,6 +29,12 @@ namespace Code.Infrastructure.Installers
       BindCommonServices();
       BindFactories();
       BindGameStateMachine();
+      BindGameplayServices();
+    }
+
+    private void BindGameplayServices()
+    {
+      Container.BindInterfacesTo<LevelDataProvider>().AsSingle();
     }
 
     private void BindContexts()
