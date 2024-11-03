@@ -1,4 +1,4 @@
-﻿namespace Code.Common
+﻿namespace Code.Gameplay.Common.Collisions
 {
   public enum CollisionLayers
   {
