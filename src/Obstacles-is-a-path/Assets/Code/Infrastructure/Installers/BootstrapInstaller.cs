@@ -5,6 +5,7 @@ using Code.Infrastructure.Factory;
 using Code.Infrastructure.Services.Scenes;
 using Code.Infrastructure.StateMachine;
 using Code.Infrastructure.StateMachine.States;
+using Code.Infrastructure.StaticData;
 using Zenject;
 
 namespace Code.Infrastructure.Installers
@@ -37,6 +38,7 @@ namespace Code.Infrastructure.Installers
       Container.Bind<ISceneLoader>().To<SceneLoader>().AsSingle();
       Container.Bind<IPhysicsService>().To<PhysicsService>().AsSingle();
       Container.Bind<IInputService>().To<InputService>().AsSingle();
+      Container.BindInterfacesTo<StaticDataService>().AsSingle();
     }
 
     private void BindInstaller()
