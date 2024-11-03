@@ -1,4 +1,5 @@
-﻿using Code.Gameplay.Common.PhysicsService;
+﻿using Code.Gameplay.Common.Collisions;
+using Code.Gameplay.Common.PhysicsService;
 using Code.Gameplay.Features.Input.Service;
 using Code.Infrastructure.Common.Coroutines;
 using Code.Infrastructure.Factory;
@@ -39,6 +40,7 @@ namespace Code.Infrastructure.Installers
       Container.Bind<IPhysicsService>().To<PhysicsService>().AsSingle();
       Container.Bind<IInputService>().To<InputService>().AsSingle();
       Container.BindInterfacesTo<StaticDataService>().AsSingle();
+      Container.BindInterfacesTo<CollisionRegistry>().AsSingle();
     }
 
     private void BindInstaller()

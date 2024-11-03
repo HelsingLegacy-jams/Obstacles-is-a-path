@@ -1,5 +1,6 @@
 ﻿using Code.Common;
 using Code.Common.Extensions;
+using Code.Gameplay.Common.Collisions;
 using Code.Gameplay.Common.PhysicsService;
 using Code.Gameplay.Features.Input.Service;
 using UnityEngine;

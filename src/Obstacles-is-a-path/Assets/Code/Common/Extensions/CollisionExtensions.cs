@@ -1,4 +1,6 @@
-﻿namespace Code.Common.Extensions
+﻿using Code.Gameplay.Common.Collisions;
+
+namespace Code.Common.Extensions
 {
   public static class CollisionExtensions
   {
