@@ -1,12 +1,18 @@
 ﻿using Code.Gameplay.Common.Collisions;
 using Code.Gameplay.Common.PhysicsService;
+using Code.Gameplay.Features.Cameras.Factory;
+using Code.Gameplay.Features.Cameras.Provider;
+using Code.Gameplay.Features.Hero.Factory;
+using Code.Gameplay.Features.Hero.Provider;
 using Code.Gameplay.Features.Input.Service;
 using Code.Infrastructure.Common.Coroutines;
 using Code.Infrastructure.Factory;
+using Code.Infrastructure.Levels;
 using Code.Infrastructure.Services.Scenes;
 using Code.Infrastructure.StateMachine;
 using Code.Infrastructure.StateMachine.States;
 using Code.Infrastructure.StaticData;
+using Code.Infrastructure.View.Factory;
 using Zenject;
 
 namespace Code.Infrastructure.Installers
@@ -26,6 +32,15 @@ namespace Code.Infrastructure.Installers
       BindCommonServices();
       BindFactories();
       BindGameStateMachine();
+      BindGameplayServices();
+    }
+
+    private void BindGameplayServices()
+    {
+      Container.BindInterfacesTo<LevelDataProvider>().AsSingle();
+      
+      Container.Bind<IHeroProvider>().To<HeroProvider>().AsSingle();
+      Container.Bind<ICameraProvider>().To<CameraProvider>().AsSingle();
     }
 
     private void BindContexts()
@@ -52,6 +67,9 @@ namespace Code.Infrastructure.Installers
     {
       Container.Bind<IStateFactory>().To<StateFactory>().AsSingle();
       Container.Bind<ISystemFactory>().To<SystemFactory>().AsSingle();
+      Container.Bind<IHeroFactory>().To<HeroFactory>().AsSingle();
+      Container.Bind<ICameraFactory>().To<CameraFactory>().AsSingle();
+      Container.Bind<IEntityViewFactory>().To<EntityViewFactory>().AsSingle();
     }
 
     private void BindGameStateMachine()

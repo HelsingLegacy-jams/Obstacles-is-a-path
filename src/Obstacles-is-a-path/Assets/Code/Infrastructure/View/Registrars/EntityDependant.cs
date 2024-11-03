@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Code.Infrastructure.View
+namespace Code.Infrastructure.View.Registrars
 {
   public class EntityDependant : MonoBehaviour
   {

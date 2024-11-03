@@ -1,4 +1,5 @@
 ﻿using Code.Gameplay.Common.Collisions;
+using Code.Infrastructure.View.Registrars;
 using UnityEngine;
 using Zenject;
 

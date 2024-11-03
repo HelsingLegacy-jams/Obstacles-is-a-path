@@ -11,39 +11,69 @@ public static class GameComponentsLookup {
     public const int View = 0;
     public const int ViewPath = 1;
     public const int ViewPrefab = 2;
-    public const int Input = 3;
-    public const int Interacted = 4;
-    public const int InteractionPosition = 5;
-    public const int DestinationPosition = 6;
-    public const int MovementAvailable = 7;
-    public const int MovementDirection = 8;
-    public const int Moving = 9;
+    public const int Transform = 3;
+    public const int WorldPosition = 4;
+    public const int Camera = 5;
+    public const int Distance = 6;
+    public const int MainCamera = 7;
+    public const int Offset = 8;
+    public const int RotationAngleX = 9;
+    public const int Hero = 10;
+    public const int Input = 11;
+    public const int Interacted = 12;
+    public const int InteractionPosition = 13;
+    public const int CharacterMover = 14;
+    public const int DestinationPosition = 15;
+    public const int MovementAvailable = 16;
+    public const int MovementDirection = 17;
+    public const int Moving = 18;
+    public const int Speed = 19;
 
-    public const int TotalComponents = 10;
+    public const int TotalComponents = 20;
 
     public static readonly string[] componentNames = {
         "View",
         "ViewPath",
         "ViewPrefab",
+        "Transform",
+        "WorldPosition",
+        "Camera",
+        "Distance",
+        "MainCamera",
+        "Offset",
+        "RotationAngleX",
+        "Hero",
         "Input",
         "Interacted",
         "InteractionPosition",
+        "CharacterMover",
         "DestinationPosition",
         "MovementAvailable",
         "MovementDirection",
-        "Moving"
+        "Moving",
+        "Speed"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(Code.Common.View),
         typeof(Code.Common.ViewPath),
         typeof(Code.Common.ViewPrefab),
+        typeof(Code.Gameplay.Common.TransformComponent),
+        typeof(Code.Gameplay.Common.WorldPosition),
+        typeof(Code.Gameplay.Features.Cameras.CameraComponent),
+        typeof(Code.Gameplay.Features.Cameras.Distance),
+        typeof(Code.Gameplay.Features.Cameras.MainCamera),
+        typeof(Code.Gameplay.Features.Cameras.Offset),
+        typeof(Code.Gameplay.Features.Cameras.RotationAngleX),
+        typeof(Code.Gameplay.Features.Hero.Hero),
         typeof(Code.Gameplay.Features.Input.Input),
         typeof(Code.Gameplay.Features.Input.Interacted),
         typeof(Code.Gameplay.Features.Input.InteractionPosition),
+        typeof(Code.Gameplay.Features.Movement.CharacterMoverComponent),
         typeof(Code.Gameplay.Features.Movement.DestinationPosition),
         typeof(Code.Gameplay.Features.Movement.MovementAvailable),
         typeof(Code.Gameplay.Features.Movement.MovementDirection),
-        typeof(Code.Gameplay.Features.Movement.Moving)
+        typeof(Code.Gameplay.Features.Movement.Moving),
+        typeof(Code.Gameplay.Features.Movement.Speed)
     };
 }

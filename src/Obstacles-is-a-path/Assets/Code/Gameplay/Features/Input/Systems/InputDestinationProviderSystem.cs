@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using Entitas;
-using UnityEngine;
 
 namespace Code.Gameplay.Features.Input.Systems
 {
   public class InputDestinationProviderSystem : IExecuteSystem
   {
     private readonly IGroup<GameEntity> _inputs;
+    private readonly IGroup<GameEntity> _heroes;
     private readonly List<GameEntity> _buffer = new (1);
 
     public InputDestinationProviderSystem(GameContext game)
@@ -15,13 +15,19 @@ namespace Code.Gameplay.Features.Input.Systems
         .AllOf(
           GameMatcher.Input,
           GameMatcher.DestinationPosition));
+
+      _heroes = game.GetGroup(GameMatcher.Hero);
     }
 
     public void Execute()
     {
-      foreach (GameEntity input in _inputs.GetEntities(_buffer))
+      foreach (GameEntity input in _inputs)
+      foreach (GameEntity hero in _heroes.GetEntities(_buffer))
       {
-        Debug.Log("Destination position is: " + input.DestinationPosition);
+        hero.AddDestinationPosition(input.DestinationPosition);
+
+        if (hero.hasMovementDirection)
+          hero.RemoveMovementDirection();
       }
     }
   }
