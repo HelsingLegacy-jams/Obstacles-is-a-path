@@ -11,6 +11,11 @@ TagManager:
   - 
   - Water
   - UI
+  - Interactable
+  - Ally
+  - Enemy
+  - Obstacle
+  - Walkable
   - 
   - 
   - 
@@ -31,12 +36,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Hero
   m_SortingLayers:
   - name: Default
     uniqueID: 0
