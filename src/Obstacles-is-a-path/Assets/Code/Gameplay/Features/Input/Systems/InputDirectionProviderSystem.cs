@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace Code.Gameplay.Features.Input.Systems
 {
-  public class InputProviderSystem : IExecuteSystem
+  public class InputDirectionProviderSystem : IExecuteSystem
   {
     private readonly IGroup<GameEntity> _inputs;
 
-    public InputProviderSystem(GameContext game)
+    public InputDirectionProviderSystem(GameContext game)
     {
       _inputs = game.GetGroup(GameMatcher
         .AllOf(

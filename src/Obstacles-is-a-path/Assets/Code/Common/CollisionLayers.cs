@@ -2,6 +2,8 @@
 {
   public enum CollisionLayers
   {
+    Interactable = 6,
+    
     Walkable = 10,
     
   }
