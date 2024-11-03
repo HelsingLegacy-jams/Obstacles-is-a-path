@@ -1,6 +1,7 @@
 ﻿using Code.Gameplay.Common.Collisions;
 using Code.Gameplay.Common.PhysicsService;
 using Code.Gameplay.Features.Hero.Factory;
+using Code.Gameplay.Features.Hero.Provider;
 using Code.Gameplay.Features.Input.Service;
 using Code.Infrastructure.Common.Coroutines;
 using Code.Infrastructure.Factory;
@@ -35,6 +36,7 @@ namespace Code.Infrastructure.Installers
     private void BindGameplayServices()
     {
       Container.BindInterfacesTo<LevelDataProvider>().AsSingle();
+      Container.Bind<IHeroProvider>().To<HeroProvider>().AsSingle();
     }
 
     private void BindContexts()
